@@ -1,5 +1,5 @@
 import React from 'react'
-import './TodoListItem.css'
+import { Wrapper } from './TodoListItem.styles'
 
 interface TodoListItemProps {
 	todo: Todo
@@ -8,11 +8,12 @@ interface TodoListItemProps {
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({ todo, toggleComplete }) => {
 	return (
-		<li>
-			<label className={todo.complete ? 'complete' : undefined}>
-				<input type='checkbox' onChange={() => toggleComplete(todo)} checked={todo.complete} />
-				{todo.text}
-			</label>
-		</li>
+		<Wrapper>
+			<li className={todo.complete ? 'complete' : ''}>
+				<label>
+					<div onClick={() => toggleComplete(todo)}>{todo.text}</div>
+				</label>
+			</li>
+		</Wrapper>
 	)
 }

@@ -1,4 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
+//Style
+import { Wrapper } from './TodoForm.styles'
 
 interface TodoFormProps {
 	addTodo: AddTodo
@@ -18,11 +20,13 @@ export const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
 	}
 
 	return (
-		<form>
-			<input type='text' value={newTodo} onChange={handleChange} />
-			<button type='submit' onClick={handleSubmit}>
-				Add Todo
-			</button>
-		</form>
+		<Wrapper>
+			<form>
+				<input type='text' value={newTodo} onChange={handleChange} />
+				<button type='submit' onClick={handleSubmit}>
+					Add Todo
+				</button>
+			</form>
+		</Wrapper>
 	)
 }

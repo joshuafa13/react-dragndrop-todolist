@@ -6,6 +6,7 @@ import { initialTodos } from '../initialTodos'
 export const TodoList: React.FC = () => {
 	const [todos, setTodos] = useState<Todo[]>(initialTodos)
 	const toggleComplete: ToggleComplete = (selectedTodo) => {
+		console.log(selectedTodo)
 		const updateTodos = todos.map((todo) => {
 			if (todo === selectedTodo) {
 				return { ...todo, complete: !todo.complete }

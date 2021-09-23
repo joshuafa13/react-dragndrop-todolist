@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-  
   :root {
     --lightGrey: grey;
     --medGrey: #353535;
