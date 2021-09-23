@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { TodoListItem } from './TodoListItem'
 import { AddTodoForm } from './AddTodoForm'
 import { initialTodos } from '../initialTodos'
+// Beautiful DND library
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 export const TodoList: React.FC = () => {
 	const [todos, setTodos] = useState<Todo[]>(initialTodos)
@@ -47,23 +49,43 @@ export const TodoList: React.FC = () => {
 	}
 	// Delete Todo
 	const deleteTodo: DeleteTodo = (selectedTodo) => {
-		setTodos((prevState) => prevState.filter((todo) => todo !== selectedTodo))
+		const updatedTodos = todos.filter((todo) => todo !== selectedTodo)
+		setTodos(updatedTodos)
 	}
+	// Drag and Drop Feature
+	const handleOnDragEnd = (result: any) => {
+		if (!result.destination) {
+			return
+		}
+		const prevTodos = Array.from(todos)
+		const [reorderedTodo] = prevTodos.splice(result.source.index, 1)
+		prevTodos.splice(result.destination.index, 0, reorderedTodo)
+		setTodos(prevTodos)
+	}
+
 	return (
 		<>
 			<h1>Todo List</h1>
 			<AddTodoForm addTodo={addTodo} />
-			<ul>
-				{todos.map((todo) => (
-					<TodoListItem
-						key={todo.id}
-						todo={todo}
-						toggleComplete={toggleComplete}
-						deleteTodo={deleteTodo}
-						updateTodo={updateTodo}
-					/>
-				))}
-			</ul>
+			<DragDropContext onDragEnd={handleOnDragEnd}>
+				<Droppable droppableId='todos'>
+					{(provided) => (
+						<ul {...provided.droppableProps} ref={provided.innerRef}>
+							{todos.map((todo, index) => (
+								<TodoListItem
+									key={todo.id}
+									todo={todo}
+									toggleComplete={toggleComplete}
+									deleteTodo={deleteTodo}
+									updateTodo={updateTodo}
+									index={index}
+								/>
+							))}
+							{provided.placeholder}
+						</ul>
+					)}
+				</Droppable>
+			</DragDropContext>
 		</>
 	)
 }

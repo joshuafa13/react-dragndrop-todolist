@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: var(--medGrey);
+    background-color: rgba(61, 89, 121, 0.534);
   }
 
   h1 {
@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: flex-start;
     width: 520px;
     min-height: 600px;
-    background: #1c1c1c;
+    background: var(--darkGrey);
     text-align: center;
     margin: 128px auto;
     border-radius: 10px;

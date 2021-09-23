@@ -24,7 +24,25 @@ export const Wrapper = styled.div`
 
 	.complete {
 		text-decoration: line-through;
+	}
+
+	.transparent {
 		opacity: 0.6;
+	}
+
+	.isDragging {
+		background: rgb(140, 140, 173);
+		opacity: 1;
+	}
+`
+
+export const Label = styled.label`
+	display: flex;
+	align-items: center;
+	.todo-index {
+		margin-right: 20px;
+		font-size: 30px;
+		font-weight: 700;
 	}
 `
 
