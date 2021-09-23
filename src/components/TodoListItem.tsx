@@ -15,6 +15,7 @@ interface TodoListItemProps {
 
 export const TodoListItem: React.FC<TodoListItemProps> = ({ todo, toggleComplete, deleteTodo, updateTodo }) => {
 	const [todoEditing, setTodoEditing] = useState<number | null>(null)
+	// Update editing state (updating: todo.id, not updating: null)
 	const completeEdit: CompleteEdit = () => {
 		setTodoEditing(null)
 	}

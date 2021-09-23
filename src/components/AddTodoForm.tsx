@@ -8,16 +8,16 @@ interface AddTodoFormProps {
 
 export const AddTodoForm: React.FC<AddTodoFormProps> = ({ addTodo }) => {
 	const [newTodo, setNewTodo] = useState('')
+	// Focus add todo input field
 	const inputRef = useRef(null)
-
 	useEffect(() => {
 		inputRef.current.focus()
 	})
-
+	// Controlled input component
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setNewTodo(e.target.value)
 	}
-
+	// Add new Todo
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		addTodo(newTodo)

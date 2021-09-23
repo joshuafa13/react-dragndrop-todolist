@@ -11,17 +11,16 @@ interface UpdateTodoFormProps {
 
 export const UpdateTodoForm: React.FC<UpdateTodoFormProps> = ({ id, todo, updateTodo, completeEdit }) => {
 	const [input, setInput] = useState(todo.text)
-
+	// Focus update input field
 	const inputRef = useRef(null)
-
 	useEffect(() => {
 		inputRef.current.focus()
 	})
-
+	// Controlled update input component
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setInput(e.target.value)
 	}
-
+	// Update Todo
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		updateTodo(id, input)
