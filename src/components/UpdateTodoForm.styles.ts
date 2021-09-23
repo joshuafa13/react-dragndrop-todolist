@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
 	form {
-		margin-bottom: 32px;
 		user-select: none;
+		justify-content: center;
 	}
 
 	input {
@@ -26,9 +26,5 @@ export const Wrapper = styled.div`
 		background: var(--medGrey);
 		color: var(--white);
 		font-size: 1.2rem;
-	}
-
-	.edit {
-		margin-bottom: 0px;
 	}
 `

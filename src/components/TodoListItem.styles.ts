@@ -13,6 +13,9 @@ export const Wrapper = styled.div`
 		width: 90%;
 		font-size: 1.2rem;
 	}
+	li.edit {
+		justify-content: center;
+	}
 
 	span {
 		cursor: pointer;
@@ -34,6 +37,11 @@ export const Icon = styled.div`
 		margin-right: 5px;
 		color: var(--white);
 		font-size: 1.8rem;
-		cursor: pointer;
+	}
+
+	.edit-icon {
+		margin-right: 5px;
+		color: var(--white);
+		font-size: 1.8rem;
 	}
 `

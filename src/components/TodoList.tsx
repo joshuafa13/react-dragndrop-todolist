@@ -6,7 +6,6 @@ import { initialTodos } from '../initialTodos'
 export const TodoList: React.FC = () => {
 	const [todos, setTodos] = useState<Todo[]>(initialTodos)
 	const toggleComplete: ToggleComplete = (selectedTodo) => {
-		console.log(selectedTodo)
 		const updateTodos = todos.map((todo) => {
 			if (todo === selectedTodo) {
 				return { ...todo, complete: !todo.complete }
@@ -21,6 +20,19 @@ export const TodoList: React.FC = () => {
 			setTodos((prevState) => [{ id: Math.floor(Math.random() * 10000), text: newTodo, complete: false }, ...prevState])
 	}
 
+	const updateTodo: UpdateTodo = (selectedId, newValue) => {
+		if (newValue.trim() === '') {
+			return
+		}
+		const updatedTodos = todos.map((todo) => {
+			if (todo.id === selectedId) {
+				return { ...todo, text: newValue }
+			}
+			return todo
+		})
+		setTodos(updatedTodos)
+	}
+
 	const deleteTodo: DeleteTodo = (selectedTodo) => {
 		setTodos((prevState) => prevState.filter((todo) => todo !== selectedTodo))
 	}
@@ -30,7 +42,13 @@ export const TodoList: React.FC = () => {
 			<TodoForm addTodo={addTodo} />
 			<ul>
 				{todos.map((todo) => (
-					<TodoListItem key={todo.id} todo={todo} toggleComplete={toggleComplete} deleteTodo={deleteTodo} />
+					<TodoListItem
+						key={todo.id}
+						todo={todo}
+						toggleComplete={toggleComplete}
+						deleteTodo={deleteTodo}
+						updateTodo={updateTodo}
+					/>
 				))}
 			</ul>
 		</>
