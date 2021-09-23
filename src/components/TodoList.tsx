@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { TodoListItem } from './TodoListItem'
+import { TodoForm } from './TodoForm'
 import { initialTodos } from '../initialTodos'
 
 export const TodoList: React.FC = () => {
@@ -13,9 +14,15 @@ export const TodoList: React.FC = () => {
 		})
 		setTodos(updateTodos)
 	}
+
+	const addTodo: AddTodo = (newTodo) => {
+		newTodo.trim().length !== 0 &&
+			setTodos((prevState) => [{ id: Math.floor(Math.random() * 10000), text: newTodo, complete: false }, ...prevState])
+	}
 	return (
 		<>
 			<h1>Todo List</h1>
+			<TodoForm addTodo={addTodo} />
 			<ul>
 				{todos.map((todo) => (
 					<TodoListItem key={todo.id} todo={todo} toggleComplete={toggleComplete} />
