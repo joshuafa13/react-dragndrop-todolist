@@ -27,8 +27,4 @@ export const Wrapper = styled.div`
 		color: var(--white);
 		font-size: 1.2rem;
 	}
-
-	.edit {
-		margin-bottom: 0px;
-	}
 `

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TodoListItem } from './TodoListItem'
-import { TodoForm } from './TodoForm'
+import { AddTodoForm } from './AddTodoForm'
 import { initialTodos } from '../initialTodos'
 
 export const TodoList: React.FC = () => {
@@ -39,7 +39,7 @@ export const TodoList: React.FC = () => {
 	return (
 		<>
 			<h1>Todo List</h1>
-			<TodoForm addTodo={addTodo} />
+			<AddTodoForm addTodo={addTodo} />
 			<ul>
 				{todos.map((todo) => (
 					<TodoListItem
