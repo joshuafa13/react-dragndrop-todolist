@@ -24,3 +24,16 @@ export const Wrapper = styled.div`
 		opacity: 0.6;
 	}
 `
+
+export const Icon = styled.div`
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	.delete-icon {
+		margin-right: 5px;
+		color: var(--white);
+		font-size: 1.8rem;
+		cursor: pointer;
+	}
+`
