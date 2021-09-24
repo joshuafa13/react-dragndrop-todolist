@@ -1,6 +1,7 @@
 # React TypeScript Todo App
 
-This app was created for the STEM Sims Front-end Assessment.
+Todo List created with Typescript and React with drag and drop reordering feature
+
 ## Run the App
 
 Install dependencies:
