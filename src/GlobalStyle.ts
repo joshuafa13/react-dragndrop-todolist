@@ -30,11 +30,16 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: flex-start;
     width: 520px;
-    min-height: 600px;
+    height: 800px;
     background: var(--darkGrey);
     text-align: center;
     margin: 128px auto;
     border-radius: 10px;
     padding-bottom: 32px;
+    overflow-y: scroll;
+  }
+  ul {
+    height: 600px;
+    overflow-y: scroll;
   }
 `
