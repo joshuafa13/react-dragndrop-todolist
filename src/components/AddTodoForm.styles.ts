@@ -26,5 +26,9 @@ export const Wrapper = styled.div`
 		background: var(--medGrey);
 		color: var(--white);
 		font-size: 1.2rem;
+		transition: background 0.2s ease-in-out;
+	}
+	button:hover {
+		background: rgb(70, 130, 180, 0.5);
 	}
 `

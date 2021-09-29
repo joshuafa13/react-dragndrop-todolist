@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 		align-items: center;
 		margin: 4px auto;
 		color: var(--white);
-		background: var(--lightGrey);
+		background: linear-gradient(to bottom right, var(--medGrey), steelblue);
 		padding: 16px;
 		border-radius: 5px;
 		width: 90%;
